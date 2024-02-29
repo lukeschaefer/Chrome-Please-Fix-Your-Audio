@@ -1,30 +1,33 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css"/>
-    <title>ChromePleaseFixYourAudio</title>
-  </head>
-  <body>
-      <h1>Chrome Please Fix Your Audio</h1>
-      <h2>Minimal repro for Chrome bug <a href="40504498">#123123</a></h2>
-      <p>
-         In some cases, Chrome subtracts your output audio from your microphone audio input. This is nifty when you're not using headphones
-         in a video call, but can be annoying in other cases. Here's what it sounds like when this happens:
-      </p>
-      <audio src="/recording.ogg" controls="true"></audio>
-      <p>Below you can test to see if your Browser/OS/Microphone combination does the same thing:</p>
-      <div id="app">
-        <button id="toggleButton" onclick="toggleClick()">TOGGLE CLICKTRACK</button>
-        <button id="sampleButton" onclick="recordSample()">RECORD A SAMPLE</button>
-        <div id="samples"></div>
-      </div>
-      <p>
-        The following code is supposed to prevent this issue, but in some Chrome browsers (definitely in ChromeOS)
-         it doesn't:
-      </p>
-      <pre>const stream = await navigator.mediaDevices.getUserMedia({
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>ChromePleaseFixYourAudio</title>
+</head>
+
+<body>
+  <h1>Chrome Please Fix Your Audio</h1>
+  <h2>Minimal repro for Chrome bug <a href="40504498">#123123</a></h2>
+  <p>
+    In some cases, Chrome subtracts your output audio from your microphone audio input. This is nifty when you're not
+    using headphones
+    in a video call, but can be annoying in other cases. Here's what it sounds like when this happens:
+  </p>
+  <audio src="/recording.ogg" controls="true"></audio>
+  <p>Below you can test to see if your Browser/OS/Microphone combination does the same thing:</p>
+  <div id="app">
+    <button id="toggleButton" onclick="toggleClick()">TOGGLE CLICKTRACK</button>
+    <button id="sampleButton" onclick="recordSample()">RECORD A SAMPLE</button>
+    <div id="samples"></div>
+  </div>
+  <p>
+    The following code is supposed to prevent this issue, but in some Chrome browsers (definitely in ChromeOS)
+    it doesn't:
+  </p>
+  <pre>const stream = await navigator.mediaDevices.getUserMedia({
   audio: true,
   echoCancellation: false,
   noiseSuppression: false,
@@ -34,7 +37,13 @@
     On my Windows machine, going <u>chrome://flags</u> and turning off these settings will prevent the issue:
   </p>
   <img src="/flags.png">
-      <p>If you're also impacted by this <a href="40504498">Chrome Bug</a> so go ahead and +1 it. Also, shameless plug - if you're wondering why I care so much, it's because I'm working on <a href="https://LoopBox.app">LoopBox</a> - a fun little tool to record audio loops in your browser.</p>
-    <script src="/src/main.ts"></script>
-  </body>
+  <p>If you're also impacted by this <a href="40504498">Chrome Bug</a> so go ahead and +1 it. If you know what you're
+    doing, browse
+    the <a href="https://github.com/lukeschaefer/chrome-please-fix-your-audio">GitHub Repo</a> to check my work. Also,
+    shameless plug - if you're wondering why I care so much, it's because I'm working on
+    <a href="https://LoopBox.app">LoopBox</a> - a fun little tool to record audio loops in your browser. Currently WIP.
+  </p>
+  <script src="/src/main.ts"></script>
+</body>
+
 </html>
