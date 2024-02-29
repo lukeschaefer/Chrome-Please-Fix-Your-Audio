@@ -18,8 +18,9 @@ async function recordSample() {
   const stream = await navigator.mediaDevices.getUserMedia(constraints);
   const mediaRecorder = new MediaRecorder(stream);
 
-  window.sampleButton.innerText = "🔴 FINISH 🔴"
-  window.sampleButton.onclick = () => mediaRecorder.stop()
+  const sampleButton = document.getElementById('sampleButton');
+  sampleButton.innerText = "🔴 FINISH 🔴"
+  sampleButton.onclick = () => mediaRecorder.stop()
 
   mediaRecorder.start();
 
@@ -34,10 +35,10 @@ async function recordSample() {
     const audioURL = window.URL.createObjectURL(blob);
     const audioElement = new Audio(audioURL);
     audioElement.controls = true;
-    window.sampleButton.innerText = "RECORD ANOTHER"
-    window.sampleButton.onclick = () => recordSample()
+    sampleButton.innerText = "RECORD ANOTHER"
+    sampleButton.onclick = () => recordSample()
 
-    window.samples.appendChild(audioElement);
+    document.getElementById('samples').appendChild(audioElement);
     if(clickTrackEnabled) toggleClick();
   }
 }
@@ -46,7 +47,7 @@ async function recordSample() {
 function toggleClick() {
   clickTrackEnabled = !clickTrackEnabled;
   if(!clickTrackSetup) setupClickTrack();
-  window.toggleButton.classList.toggle("active");
+  document.getElementById('toggleButton').classList.toggle("active");
 }
 
 // This is to create a pleasant sounding four-beats-per-measure click track.
