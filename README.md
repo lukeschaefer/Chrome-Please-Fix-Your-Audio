@@ -1,6 +1,6 @@
 <h1 style="border-bottom-width: 0">Chrome Please Fix Your Audio</h1>
 
-### [Minimal Reproduction](https://chrome-please-fix-your-audio.xyz) for Chrome bug [#123123]()
+### [Minimal Reproduction](https://chrome-please-fix-your-audio.xyz) for Chrome bug [#327472528](https://issues.chromium.org/issues/327472528)
 
 In some cases, Chrome subtracts your output audio from your microphone audio input. This is nifty when you're not using headphones in a video call, but can be annoying in other cases. 
 
@@ -23,4 +23,4 @@ On my Windows machine, going `chrome://flags` and turning off these settings wil
 
 Head to https://chrome-please-fix-your-audio.xyz - or clone the repo and run locally with a quick `npm run dev`.
 
-If you're also impacted by this Chrome Bug so go ahead and +1 it. Also, shameless plug - if you're wondering why I care so much, it's because I'm working on LoopBox - a fun little tool to record audio loops in your browser.
+If you're also impacted by [this bug](https://issues.chromium.org/issues/327472528) go ahead and +1 it. Also, shameless plug - if you're wondering why I care so much, it's because I'm working on https://LoopBox.app - a fun little tool to record audio loops in your browser.
