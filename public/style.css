@@ -1,0 +1,85 @@
+
+
+body, html {
+    padding: 8px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    font-family: sans-serif;
+    max-width: 860px;
+    margin: auto;
+}
+
+p {
+    font-size: .95rem;
+    line-height: 1.25rem;
+}
+
+h2 {
+    padding-bottom: 8px;
+    border-bottom: 1px solid #aaa;
+    margin-top: -10px;
+    margin-bottom: 8px;
+}
+
+pre, #app, img{
+    border: 1px solid #aaa;
+    background: #eee;
+    padding: 8px 8px;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+
+#samples {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+audio {
+    margin-top: 8px;
+    width: 100%;
+    border: 1px solid black;
+    background: white;
+}
+
+audio::-webkit-media-controls-panel {
+    background: white;
+}
+
+button {
+    background: white;
+    font-weight: bold;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 8px 6px;
+    width: 200px;
+}
+
+audio:hover,
+button:hover {
+    outline: 2px solid black;
+}
+
+button.active,
+button:active {
+    filter: invert(1);
+}
+
+audio:not([src]) {
+    opacity: .5;
+    pointer-events: none;
+    position: relative;
+}
+
+audio:not([src])::before {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    content: "Record a sample first...";
+}
