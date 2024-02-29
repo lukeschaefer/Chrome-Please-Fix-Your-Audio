@@ -3,6 +3,16 @@ let audioContext : AudioContext;
 let clickTrackEnabled = false;
 let clickTrackSetup = false;
 
+
+window.addEventListener('load', () => {
+  const sampleButton = document.getElementById('sampleButton');
+  sampleButton.onclick = () => recordSample();
+
+  const clickTrackButton = document.getElementById('toggleButton');
+  clickTrackButton.onclick = () => toggleClick();
+})
+
+
 async function recordSample() {
   // THESE CONSTRAINTS SHOULD FIX THE ISSUE BUT DO NOT:
   const constraints = {
