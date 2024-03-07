@@ -12,15 +12,15 @@
   <h1>Chrome Please Fix Your Audio</h1>
   <h2>Minimal repro for Chrome bug <a href="https://issues.chromium.org/issues/327472528">#327472528</a></h2>
   <p>
-    In some cases, Chrome subtracts your output audio from your microphone audio input. This is nifty when you're not
-    using headphones
-    in a video call, but can be annoying in other cases. Here's what it sounds like when this happens:
+    When using a microphone, Chrome will occasionally subtract your output audio from your microphone audio input. 
+    This is useful in some circumstances - particularly if you're not using headphones - but can be annoying in many other cases where you want clean audio.
+    Here's what it sounds like when this happens:
   </p>
-  <audio src="/recording.ogg" controls="true"></audio>
-  <p>Below you can test to see if your Browser/OS/Microphone combination does the same thing:</p>
+  <audio src="/sample.mp3" controls="true"></audio>
+  <p>You can test this easily by using one of the many <a href="https://www.google.com/search?q=record+audio+online&oq=record+audio+online">"record audio online"</a> sites, and playing a <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">YouTube video</a> in another tab. To aid with accurate replication, here's a tiny sandbox to reproduce it:</p>
   <div id="app">
-    <button id="toggleButton" onclick="toggleClick()">TOGGLE CLICKTRACK</button>
     <button id="sampleButton" onclick="recordSample()">RECORD A SAMPLE</button>
+    <button id="toggleButton" onclick="toggleClick()">TOGGLE BACKGROUND</button>
     <div id="samples"></div>
   </div>
   <p>

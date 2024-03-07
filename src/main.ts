@@ -60,7 +60,7 @@ function toggleClick() {
   document.getElementById('toggleButton').classList.toggle("active");
 }
 
-// This is to create a pleasant sounding four-beats-per-measure click track.
+// This is to create a pleasant sounding background noise.
 // This exact setup is not required for the test case - you can also reproduce by playing
 // a YouTube video in another tab.
 function setupClickTrack() {
@@ -79,7 +79,7 @@ function setupClickTrack() {
 
   const beep = () => {
     if(!clickTrackEnabled) return;
-    setTimeout(beep, 500)
+    setTimeout(beep, 300)
 
     const now = audioContext.currentTime;
 
