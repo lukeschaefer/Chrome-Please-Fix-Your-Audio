@@ -10,22 +10,29 @@
 
 <body>
   <h1>Chrome Please Fix Your Audio</h1>
-  <h2>Minimal repro for Chrome bug <a href="https://issues.chromium.org/issues/327472528">#327472528</a></h2>
-  <p>
-    When using a microphone, Chrome will occasionally subtract your output audio from your microphone audio input. 
-    This is useful in some circumstances - particularly if you're not using headphones - but can be annoying in many other cases where you want clean audio.
-    Here's what it sounds like when this happens:
+  <h2>Chrome bug <a href="https://issues.chromium.org/issues/327472528">#327472528</a></h2>
+  <p id="intro">
+    Chrome has the ability to subtract your <b>audio output</b> (speakers or headphones) from your <b>audio input</b>
+    (microphone).
+    This is helpful in some circumstances, like when taking a call without headphones - but can be annoying in many
+    other cases
+    where you want clean and crisp audio recording.
+    </p>
+    <p>
+      <b>Here's what it sounds like when this happens:</b>
   </p>
   <audio src="/sample.mp3" controls="true"></audio>
-  <p>You can test this easily by using one of the many <a href="https://www.google.com/search?q=record+audio+online&oq=record+audio+online">"record audio online"</a> sites, and playing a <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">YouTube video</a> in another tab. To aid with accurate replication, here's a tiny sandbox to reproduce it:</p>
+  <p>You can test this easily by using one of the many <a
+      href="https://www.google.com/search?q=record+audio+online&oq=record+audio+online">"record audio online"</a> sites,
+    and playing a <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">YouTube video</a> in another tab. To aid with
+    accurate replication, here's a tiny sandbox to reproduce it:</p>
   <div id="app">
-    <button id="sampleButton" onclick="recordSample()">RECORD A SAMPLE</button>
+    <button id="sampleButton" onclick="recordSample()">RECORD SAMPLE</button>
     <button id="toggleButton" onclick="toggleClick()">TOGGLE BACKGROUND</button>
     <div id="samples"></div>
   </div>
   <p>
-    The following code is supposed to prevent this issue, but in some Chrome browsers (definitely in ChromeOS)
-    it doesn't:
+    The following code snippet is supposed to prevent this issue, but doesn't:
   </p>
   <pre>const stream = await navigator.mediaDevices.getUserMedia({
   audio: true,
@@ -33,16 +40,23 @@
   noiseSuppression: false,
   autoGainControl: false,
 });</pre>
+  <br>
+  <h2 id="fix">The Fix</h2>
   <p>
-    On my Windows machine, going <u>chrome://flags</u> and turning off these settings will prevent the issue:
+    Go to <u>chrome://flags</u> and turn off these flags:
   </p>
   <img src="/flags.png">
-  <p>If you're also impacted by this <a href="https://issues.chromium.org/issues/327472528">Chrome Bug</a> so go ahead and +1 it. If you know what you're
-    doing, browse
-    the <a href="https://github.com/lukeschaefer/chrome-please-fix-your-audio">GitHub Repo</a> to check my work. Also,
-    shameless plug - if you're wondering why I care so much, it's because I'm working on
-    <a href="https://LoopBox.app">LoopBox</a> - a fun little tool to record audio loops in your browser. Currently WIP.
+  <p>If you're also impacted by this <a href="https://issues.chromium.org/issues/327472528">Chrome Bug</a>, go ahead and
+    +1 it.
+    This site is <a href="https://github.com/lukeschaefer/chrome-please-fix-your-audio">Open Source</a> and very small,
+    so feel free to double check my work.
   </p>
+  <p>
+    If you're wondering why I care, it's because I'm working on
+    <a href="https://LoopBox.app">LoopBox</a> - a fun little tool to record layered audio loops in your browser...
+    it is severely impacted by this bug.
+  </p>
+  <br><br><br><br>
   <script type="module" src="/src/main.ts"></script>
 </body>
 

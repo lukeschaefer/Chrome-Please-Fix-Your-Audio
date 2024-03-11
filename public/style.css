@@ -1,29 +1,51 @@
 
 
-body, html {
-    padding: 8px;
+html {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
     align-items: stretch;
     font-family: sans-serif;
+
+}
+
+body {
+    box-sizing: border-box;
+    padding: 8px 14px;
     width: 860px;
-    max-width: 100vw;
+    max-width: calc(100vw - 20px);
     margin: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 p {
     font-size: .95rem;
     line-height: 1.25rem;
-    margin-top: 24px;
+    margin-top: 20px;
+}
+
+#intro {
+    background: rgb(255, 252, 165);
+    border: 2px solid rgb(165, 120, 42);
+    padding: 8px;
+    margin-bottom: -4px;
+}
+
+h1 {
+    margin-top: 42px;
+    margin-bottom: -10px;
+    font-size: min(50px, calc(5vw + .2rem));
 }
 
 h2 {
+    font-size: min(28px, calc(3vw + .3rem));
     padding-bottom: 8px;
     border-bottom: 1px solid #aaa;
-    margin-top: -10px;
+    margin-top: 20px;
     margin-bottom: 8px;
+    color: #000a;
 }
 
 pre, #app, img{
@@ -59,7 +81,9 @@ button {
     border: 1px solid black;
     cursor: pointer;
     padding: 8px 6px;
-    width: 200px;
+    width: 160px;
+    height: 32px;
+    font-size: .7rem;
 }
 
 audio:hover,
